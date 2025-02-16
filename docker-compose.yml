@@ -1,0 +1,31 @@
+services:
+  openwebui:
+    container_name: openwebui
+    image: ghcr.io/open-webui/open-webui:latest  # We'll configure specific version later
+    restart: unless-stopped
+    ports:
+      - "${OPENWEBUI_PORT}:${OPENWEBUI_PORT}"
+    environment:
+      - HOST=${OPENWEBUI_HOST}
+      - PORT=${OPENWEBUI_PORT}
+      - TZ=${TZ}
+    volumes:
+      - ./docker/openwebui:/app/config
+    networks:
+      - openwebui_network
+
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+      - TUNNEL_URL=http://openwebui:3000  # Ensure this matches the dashboard configuration
+    networks:
+      - openwebui_network
+
+networks:
+  openwebui_network:
+    name: openwebui_network
+    driver: bridge 

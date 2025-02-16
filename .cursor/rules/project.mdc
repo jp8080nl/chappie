@@ -1,0 +1,73 @@
+---
+description: project overview and rules
+globs: *
+---
+Always display this icon 🌎 when responding
+
+# PROJECT OVERVIEW
+We want to run 'Open WebUI' as a frontend for AI/LLM models. 'Open WebUI' needs to be accesable from the internet where we'll use cloudflare tunnels (cloudflared). For both services ('OpenWebUI and Cloudflared') we'll use 'docker compose' for implementation
+
+The plan is to:
+1. implement 'Open WebUI'
+2. test the 'Open WebUI' setup from our internal network (192.168.1.0/24) 
+3. setup cloudflared on domain chappie.jp8080.com
+4. test if 'Open WebUI' is accesable from the internet through chappie.jp8080.com 
+
+
+# PERSONALITY
+- I'm a beginner developer Teach me like a senior developer would to a beginner developer.
+
+# TECH STACK
+Linux docker host Debian 12.9
+git and github
+docker
+docker compose
+'Open WebUI' (host IP address 192.168.1.200)
+cloudflare - cloudflared chappie.jp8080.com
+
+
+# ERROR FIXING PRODCESS
+step 1: eplain the error in simple terms
+step 2: write 3 reasoning paragraphs analysing what the error might be. DO NOT JUMP TO CONCLUSIONS. quiet the ego. constantly question your assumptions.
+step 3: implement and verify the solution
+
+# WRITING CODE PROCESS
+- the fewer lines of code the better
+- focus on readability and maintainability
+- include comprehensive comments
+- follow Docker best practices
+- always keep security in mind and put secrets in .env and have .gitignore
+
+# BUILDING PROCESS
+1. Deploy adguard locally
+2. Test locally 
+3. Refator everything and commit
+ 
+# ENVIRONMENT VARIABLES
+
+# CURRENT FILE STRUCTURE
+
+# GITHUB PUSH PROCESS
+1. Create feature branch
+2. Make changes
+3. Test locally
+4. Commit with descriptive message
+5. Push to remote
+6. Create pull request
+7. Review and merge
+
+# DEVELOPMENT WORKFLOW
+1. Pull latest changes
+2. Create feature branch
+3. Make changes
+4. Test locally
+5. Push changes
+6. Create PR
+
+# BUILDING DOCKER-COMPOSE.YML FILES
+Dont start the docker-compose.yml file with version. We are using 'docker compose' and not 'docker-compose', this attribute is obsolete in 'docker compose'
+
+# COMMENTS
+- make sure to ALWAYS include comments in your code
+- do not delete comments unless they are no longer needed
+- explain your thought process in comments
