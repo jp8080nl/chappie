@@ -1,0 +1,20 @@
+services:
+  openwebui:
+    container_name: openwebui
+    image: ghcr.io/open-webui/open-webui:latest  # We'll configure specific version later
+    restart: unless-stopped
+    ports:
+      - "${OPENWEBUI_PORT}:${OPENWEBUI_PORT}"
+    environment:
+      - HOST=${OPENWEBUI_HOST}
+      - PORT=${OPENWEBUI_PORT}
+      - TZ=${TZ}
+    volumes:
+      - ./docker/openwebui:/app/config
+    networks:
+      - openwebui_network
+
+networks:
+  openwebui_network:
+    name: openwebui_network
+    driver: bridge 
