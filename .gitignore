@@ -1,24 +1,26 @@
 # Environment variables
 .env
-.env.*
-!.env.example
 
-# Docker volumes
-volumes/
-
-# Operating System Files
-.DS_Store
-Thumbs.db
-
-# IDE specific files
-.idea/
-.vscode/
-*.swp
-*.swo
+# Docker runtime data
+docker/
 
 # Logs
 *.log
-logs/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Temporary files
 *.tmp

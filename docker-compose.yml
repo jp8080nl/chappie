@@ -10,7 +10,8 @@ services:
       - PORT=${OPENWEBUI_PORT}
       - TZ=${TZ}
     volumes:
-      - ./docker/openwebui:/app/config
+      - ./docker/openwebui:/app/config        # Config directory
+      - ./docker/openwebui/openwebui_data:/app/backend/data      # Add persistent volume for data
     networks:
       - openwebui_network
 
@@ -21,11 +22,14 @@ services:
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-      - TUNNEL_URL=http://openwebui:3000  # Ensure this matches the dashboard configuration
+      - TUNNEL_URL=http://openwebui:${OPENWEBUI_PORT}  # Use environment variable for port
     networks:
       - openwebui_network
 
 networks:
   openwebui_network:
     name: openwebui_network
-    driver: bridge 
+    driver: bridge
+
+volumes:
+  openwebui_data:  # Define the named volume for OpenWebUI data persistence 
